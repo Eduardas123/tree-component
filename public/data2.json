@@ -1,0 +1,157 @@
+[
+    {
+        "name": "Root",
+        "children": [
+            {
+                "name": "Folder A",
+                "children": [
+                    {
+                        "name": "File 1"
+                    },
+                    {
+                        "name": "Subfolder A1",
+                        "children": [
+                            {
+                                "name": "File 2"
+                            },
+                            {
+                                "name": "Subfolder A2",
+                                "children": [
+                                    {
+                                        "name": "File 3"
+                                    },
+                                    {
+                                        "name": "File 4"
+                                    },
+                                    {
+                                        "name": "Subfolder A3",
+                                        "children": [
+                                            {
+                                                "name": "File 5"
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "name": "Folder B",
+                "children": [
+                    {
+                        "name": "Subfolder B1",
+                        "children": [
+                            {
+                                "name": "File 6"
+                            },
+                            {
+                                "name": "Subfolder B2",
+                                "children": [
+                                    {
+                                        "name": "File 7"
+                                    },
+                                    {
+                                        "name": "File 8"
+                                    }
+                                ]
+                            },
+                            {
+                                "name": "Subfolder B3",
+                                "children": [
+                                    {
+                                        "name": "File 9"
+                                    },
+                                    {
+                                        "name": "Subfolder B4",
+                                        "children": [
+                                            {
+                                                "name": "File 10"
+                                            },
+                                            {
+                                                "name": "Subfolder B5",
+                                                "children": [
+                                                    {
+                                                        "name": "File 11"
+                                                    }
+                                                ]
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "name": "Folder C",
+                "children": [
+                    {
+                        "name": "Subfolder C1",
+                        "children": [
+                            {
+                                "name": "File 12"
+                            },
+                            {
+                                "name": "Subfolder C2",
+                                "children": [
+                                    {
+                                        "name": "File 13"
+                                    },
+                                    {
+                                        "name": "Subfolder C3",
+                                        "children": [
+                                            {
+                                                "name": "File 14"
+                                            },
+                                            {
+                                                "name": "File 15"
+                                            },
+                                            {
+                                                "name": "Subfolder C4",
+                                                "children": [
+                                                    {
+                                                        "name": "File 16"
+                                                    },
+                                                    {
+                                                        "name": "File 17"
+                                                    },
+                                                    {
+                                                        "name": "File 18"
+                                                    },
+                                                    {
+                                                        "name": "File 19"
+                                                    },
+                                                    {
+                                                        "name": "File 20"
+                                                    },
+                                                    {
+                                                        "name": "File 21"
+                                                    },
+                                                    {
+                                                        "name": "File 22"
+                                                    },
+                                                    {
+                                                        "name": "File 23"
+                                                    },
+                                                    {
+                                                        "name": "File 24"
+                                                    },
+                                                    {
+                                                        "name": "File 25"
+                                                    }
+                                                ]
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    }
+]

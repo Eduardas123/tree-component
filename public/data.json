@@ -1,0 +1,32 @@
+[
+    {
+      "name": "Root",
+      "children": [
+        {
+          "name": "Folder 1",
+          "children": [
+            {
+              "name": "File 1"
+            },
+            {
+              "name": "File 2"
+            }
+          ]
+        },
+        {
+          "name": "Folder 2",
+          "children": [
+            {
+              "name": "Subfolder 1",
+              "children": [
+                {
+                  "name": "File 3"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+  
