@@ -1,14 +1,25 @@
 <template>
-    <li>
-      <div class="node" @click="toggleExpanded">
-        <i v-if="node.children && node.children.length" :class="expanded ? 'fa fa-minus-square' : 'fa fa-plus-square'"></i>
-        <i :class="getIconClass(depth)"></i>
-        {{ node.name }}
+  <li>
+    <div class="node" @click="toggleExpanded">
+      <i v-if="node.children && node.children.length" :class="expanded ? 'fa fa-minus-square' : 'fa fa-plus-square'"></i>
+      <i :class="getIconClass(depth)"></i>
+      <div v-if="!isEditing" @click.stop>
+        <span class="node-name" v-if="!isEditing" @click.stop>
+          {{ node.name }}
+        </span>
       </div>
-      <ul v-if="node.children && node.children.length && expanded" class="children">
-        <tree-node v-for="(child, index) in node.children" :key="index" :node="child" :depth="depth + 1"></tree-node>
-      </ul>
-    </li>
+      <input v-else type="text" v-model="node.name" @blur="endEdit" @keydown.enter="endEdit">
+      <div class="button-group">
+        <i class="fa fa-file-o" @click.stop="addNode" title="Add"></i>
+        <i class="fa fa-trash-o" @click.stop="removeNode" title="Remove"></i>
+        <i class="fa fa-edit" @click.stop="beginEdit" title="Edit"></i>
+      </div>
+    </div>
+    <ul v-if="node.children && node.children.length && expanded" class="children">
+      <tree-node v-for="(child, index) in node.children" :key="index" :node="child" :depth="depth + 1"
+        @remove-node="handleRemoveNode"></tree-node>
+    </ul>
+  </li>
 </template>
 
 <script>
@@ -27,6 +38,7 @@ export default {
   data() {
     return {
       expanded: false,
+      isEditing: false,
     };
   },
   methods: {
@@ -50,12 +62,34 @@ export default {
 
       return iconMap[depth] || "fa fa-icon-default";
     },
+    addNode() {
+      const newNode = { name: "New Node", children: [] };
+      this.node.children.push(newNode);
+
+      // If the node is not already expanded, expand it
+      if (!this.expanded) {
+        this.toggleExpanded();
+      }
+    },
+    removeNode() {
+      this.$emit("remove-node", this.node);
+    },
+    handleRemoveNode(nodeToRemove) {
+      this.node.children = this.node.children.filter(child => child !== nodeToRemove);
+    },
+    beginEdit() {
+      this.isEditing = true;
+    },
+    endEdit() {
+      this.isEditing = false;
+    }
   },
 };
 </script>
-
 <style scoped>
 .node {
+  display: flex;
+  position: relative;
   cursor: pointer;
   font-family: "Open Sans", sans-serif;
   font-size: 18px;
@@ -98,5 +132,41 @@ export default {
   font-size: 0.8em;
   color: #2c3e50;
   margin-right: 5px;
+}
+
+.button-group {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.node:hover .button-group {
+  opacity: 1;
+}
+
+.button-group button {
+  background-color: #2c3e50;
+  color: #fff;
+  border: none;
+  border-radius: 3px;
+  padding: 5px 10px;
+  margin-left: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.button-group button:hover {
+  background-color: #34495e;
+}
+
+.button-group i {
+  margin: 0 2px;
+}
+
+.node-name {
+  margin-left: 10px;
 }
 </style>
